@@ -20,6 +20,12 @@ from solders.pubkey import Pubkey
 from solders.null_signer import NullSigner
 from solders.signature import Signature
 
+from voyager.scoring import (
+    decode_ix_data,
+    discovery_reward,
+    unique_instructions_by_program,
+)
+
 load_dotenv(join(dirname(__file__), '.env'))
 
 READY_TOKEN = b"Connection established."          # surfpool prints this when ready
@@ -297,18 +303,7 @@ class SurfpoolEnv(gym.Env):
         # Get observation after updating metrics
         obs = await self._get_observation(last_tx_result=tx_receipt)
         
-        # Build unique instructions per program for this transaction
-        unique_instructions_this_tx = {}
-        for ix in ordered_instructions:
-            prog_id = str(ix['program_id'])
-            if len(ix['data']) > 0:
-                discriminator = ix['data'][0]
-            else:
-                discriminator = 0
-            
-            if prog_id not in unique_instructions_this_tx:
-                unique_instructions_this_tx[prog_id] = []
-            unique_instructions_this_tx[prog_id].append(discriminator)
+        unique_instructions_this_tx = unique_instructions_by_program(ordered_instructions)
         
         return obs, reward, False, False, { 
             "tx_sig": str(sig.value), 
@@ -319,21 +314,21 @@ class SurfpoolEnv(gym.Env):
         }
 
     def _get_ordered_instructions(self, tx_result: GetTransactionResp) -> list[dict[str, bytes]]:
-        inner_instructions = {ix.index: ix.instructions for ix in tx_result.value.transaction.meta.inner_instructions}
+        meta = tx_result.value.transaction.meta
+        raw_inner = getattr(meta, "inner_instructions", None) or []
+        inner_instructions = {ix.index: ix.instructions for ix in raw_inner}
         message = tx_result.value.transaction.transaction.message
         ordered_instructions = []
         for idx, ix in enumerate(message.instructions):
             ordered_instructions.append({
                 'program_id': message.account_keys[ix.program_id_index],
-                'data': base58.b58decode(ix.data),
+                'data': decode_ix_data(ix.data),
             })
-            # pdb.set_trace()
-            ordered_instructions.extend(
-                [{
+            for inner_instruction in inner_instructions.get(idx, []) or []:
+                ordered_instructions.append({
                     'program_id': message.account_keys[inner_instruction.program_id_index],
-                    'data': base58.b58decode(inner_instruction.data),
-                } for inner_instruction in inner_instructions[idx]]
-            )
+                    'data': decode_ix_data(inner_instruction.data),
+                })
         return ordered_instructions
     
     def _calculate_reward(self, tx_result: GetTransactionResp) -> float:
@@ -341,29 +336,16 @@ class SurfpoolEnv(gym.Env):
             return 0
 
         ordered_instructions = self._get_ordered_instructions(tx_result)
-
-        reward = 0
-        for ix in ordered_instructions:
-            # If we have an allowed programs filter, check if this program is allowed
-            if self.allowed_programs:
-                prog_id_str = str(ix['program_id'])
-                if prog_id_str not in self.allowed_programs:
-                    continue  # Skip instructions from non-allowed programs
-            
-            # Check if instruction data is not empty before accessing index 0
-            if len(ix['data']) > 0:
-                discriminator = ix['data'][0]
-            else:
-                discriminator = 0  # Default discriminator for empty data
-            
-            key = (ix['program_id'], discriminator)
-            if key not in self.program_instructions_seen:
-                reward += 1
-                self.program_instructions_seen[key] = True
-                if self.allowed_programs:
-                    logging.info(f"🔄 Discovered new swap instruction ({str(key[0])[:8]}..., disc:{str(key[1])})")
-                else:
-                    logging.info(f"Discovered new program instruction ({str(key[0])}, {str(key[1])})")
+        reward = discovery_reward(
+            ordered_instructions,
+            self.program_instructions_seen,
+            allowed_programs=self.allowed_programs,
+        )
+        if reward:
+            logging.info(
+                "Discovered %s new program instruction(s)",
+                reward,
+            )
         return reward
     
     def render(self, mode="human"):
