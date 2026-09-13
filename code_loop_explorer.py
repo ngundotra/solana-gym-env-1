@@ -88,6 +88,7 @@ class CodeLoopExplorer:
             "environment_config": environment_config,
             "messages": [],
             "cumulative_rewards": [],
+            "raw_unfiltered_rewards": [],
             "programs_discovered": {},
             "instructions_by_program": {},  # Track unique instructions per program
             "code_blocks_extracted": [],
@@ -342,6 +343,12 @@ Remember to use ```typescript code blocks for your transaction code.
                 
                 # Update cumulative metrics
                 self.metrics['cumulative_rewards'].append(env.total_reward)
+                self.metrics['raw_unfiltered_rewards'] = self.metrics.get(
+                    'raw_unfiltered_rewards', []
+                )
+                self.metrics['raw_unfiltered_rewards'].append(
+                    getattr(env, 'raw_unfiltered_reward', env.total_reward)
+                )
                 
                 # Build message metrics
                 message_metrics = {
@@ -350,6 +357,9 @@ Remember to use ```typescript code blocks for your transaction code.
                     'duration': (datetime.now() - message_start_time).total_seconds(),
                     'reward': reward,
                     'total_reward': env.total_reward,
+                    'raw_unfiltered_reward': getattr(
+                        env, 'raw_unfiltered_reward', env.total_reward
+                    ),
                     'instructions_discovered': instructions_discovered,
                     'code_extracted': bool(code_blocks),
                 }

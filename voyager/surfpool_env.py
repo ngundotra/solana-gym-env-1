@@ -21,8 +21,11 @@ from solders.null_signer import NullSigner
 from solders.signature import Signature
 
 from voyager.scoring import (
+    DEFAULT_EXCLUDED_PROGRAMS,
     decode_ix_data,
     discovery_reward,
+    discovery_reward_unfiltered,
+    max_unique_per_program_from_env,
     unique_instructions_by_program,
 )
 
@@ -97,8 +100,14 @@ class SurfpoolEnv(gym.Env):
     """
     metadata = {"render_modes": ["human"], "render_fps": 30}
 
-    def __init__(self, rpc_url: str = "https://api.mainnet-beta.solana.com", ws_url: str = "ws://localhost:8900", 
-                 allowed_programs: list = None, use_external_surfpool: bool = False):
+    def __init__(
+        self,
+        rpc_url: str = "https://api.mainnet-beta.solana.com",
+        ws_url: str = "ws://localhost:8900",
+        allowed_programs: list = None,
+        excluded_programs: list | None = None,
+        use_external_surfpool: bool = False,
+    ):
         super().__init__()
 
         self.rpc_url = rpc_url
@@ -109,19 +118,27 @@ class SurfpoolEnv(gym.Env):
         
         # Program filter for specialized environments (e.g., swap-only)
         self.allowed_programs = allowed_programs or []
+        if excluded_programs is None:
+            self.excluded_programs = list(DEFAULT_EXCLUDED_PROGRAMS)
+        else:
+            self.excluded_programs = list(excluded_programs)
+        self.max_unique_per_program = max_unique_per_program_from_env()
         self.test_validator_process = None
         self.agent_keypair = Keypair()
 
         self.program_instructions_seen = {}
+        self.raw_program_instructions_seen = {}
         self.last_observation = None
         self.last_tx_receipt = None
         self._validator_cm = None       # will hold the context-manager
         self._validator_proc = None     # the running subprocess
-        self.total_reward = 0           # Track cumulative reward for this episode.Process
+        self.total_reward = 0           # Fair (filtered) cumulative reward
+        self.raw_unfiltered_reward = 0  # Legacy include-all scoring for comparison
         
         # Transaction efficiency tracking
         self.last_tx_instruction_count = 0
         self.last_tx_reward = 0
+        self.last_tx_raw_reward = 0
 
 
     async def _get_observation(self, last_tx_result=None):
@@ -149,10 +166,12 @@ class SurfpoolEnv(gym.Env):
             "discovered_programs": len(unique_programs),
             "discovered_program_list": list(unique_programs),  # Unique program IDs
             "discovered_instructions_by_program": discovered_instructions_by_program,
-            "total_reward": len(self.program_instructions_seen),
+            "total_reward": self.total_reward,
+            "raw_unfiltered_reward": self.raw_unfiltered_reward,
             "unique_instructions_found": len(self.program_instructions_seen),
             "last_tx_instruction_count": self.last_tx_instruction_count,
-            "last_tx_reward": self.last_tx_reward
+            "last_tx_reward": self.last_tx_reward,
+            "last_tx_raw_reward": self.last_tx_raw_reward,
         }
 
         try:
@@ -231,6 +250,7 @@ class SurfpoolEnv(gym.Env):
         # Reset transaction tracking
         self.last_tx_instruction_count = 0
         self.last_tx_reward = 0
+        self.last_tx_raw_reward = 0
         
         # Fund the agent
         try:
@@ -296,9 +316,11 @@ class SurfpoolEnv(gym.Env):
         # Track instruction count for this transaction
         self.last_tx_instruction_count = len(ordered_instructions)
         
-        reward = self._calculate_reward(result)
+        reward, raw_reward = self._calculate_reward(result)
         self.last_tx_reward = reward
+        self.last_tx_raw_reward = raw_reward
         self.total_reward += reward
+        self.raw_unfiltered_reward += raw_reward
         
         # Get observation after updating metrics
         obs = await self._get_observation(last_tx_result=tx_receipt)
@@ -310,7 +332,9 @@ class SurfpoolEnv(gym.Env):
             "tx_meta": result.value.to_json(),
             "programs_interacted": programs_in_tx,
             "unique_instructions": unique_instructions_this_tx,
-            "reward": reward
+            "reward": reward,
+            "raw_reward": raw_reward,
+            "raw_unfiltered_reward": self.raw_unfiltered_reward,
         }
 
     def _get_ordered_instructions(self, tx_result: GetTransactionResp) -> list[dict[str, bytes]]:
@@ -323,30 +347,41 @@ class SurfpoolEnv(gym.Env):
             ordered_instructions.append({
                 'program_id': message.account_keys[ix.program_id_index],
                 'data': decode_ix_data(ix.data),
+                'accounts': list(getattr(ix, 'accounts', []) or []),
             })
             for inner_instruction in inner_instructions.get(idx, []) or []:
                 ordered_instructions.append({
                     'program_id': message.account_keys[inner_instruction.program_id_index],
                     'data': decode_ix_data(inner_instruction.data),
+                    'accounts': list(getattr(inner_instruction, 'accounts', []) or []),
                 })
         return ordered_instructions
     
-    def _calculate_reward(self, tx_result: GetTransactionResp) -> float:
+    def _calculate_reward(self, tx_result: GetTransactionResp) -> tuple[float, float]:
         if tx_result.value.transaction.meta.err:
-            return 0
+            return 0, 0
 
         ordered_instructions = self._get_ordered_instructions(tx_result)
+        allowed = self.allowed_programs or None
         reward = discovery_reward(
             ordered_instructions,
             self.program_instructions_seen,
-            allowed_programs=self.allowed_programs,
+            allowed_programs=allowed,
+            excluded_programs=self.excluded_programs,
+            max_unique_per_program=self.max_unique_per_program,
+            apply_spam_filter=True,
+        )
+        raw_reward = discovery_reward_unfiltered(
+            ordered_instructions,
+            self.raw_program_instructions_seen,
+            allowed_programs=allowed,
         )
         if reward:
             logging.info(
-                "Discovered %s new program instruction(s)",
+                "Discovered %s new program instruction(s) (fair score)",
                 reward,
             )
-        return reward
+        return reward, raw_reward
     
     def render(self, mode="human"):
         logging.info("Rendering not implemented for this environment.")
