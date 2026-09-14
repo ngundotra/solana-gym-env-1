@@ -3,6 +3,8 @@
 
 Fair scoring rules (see voyager/scoring.py):
   +1 per unique (program_id, first_byte_of_ix_data) on successful txs
+  Default allowlist = this top-100 usage set minus Memo v1/v2
+  (SCORE_FAIR_ALLOWLIST=0 disables the allowlist for legacy experiments)
   Memo v1/v2 excluded by default
   Cap: max_unique_per_program=32 (SCORE_MAX_UNIQUE_PER_PROGRAM)
   First-pass ceiling: assume saturating the cap → ≤ 32 × (#non-Memo in top 100)

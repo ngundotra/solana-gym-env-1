@@ -85,7 +85,7 @@ uv run python code_loop_explorer.py
 1. **Budget**: 50 messages per model per run
 2. **Per-turn constraint**: Model emits TypeScript that must produce exactly one unsigned transaction
 3. **Execution**: Run against sandboxed Solana validator ([Surfpool](https://surfpool.run)) that mimics mainnet
-4. **Score**: Number of unique instructions from successfully executed transactions. Instructions identified by first byte of instruction data.
+4. **Score**: Fair `total_reward` is unique `(program_id, first-byte)` discoveries on the checked-in [top-100 usage set](docs/top100_programs_snapshot.json), excluding Memo v1/v2, with a 32-discriminator cap per program. Episode-deployed synthetic programs do not score. `raw_unfiltered_reward` is the unfiltered side metric. Set `SCORE_FAIR_ALLOWLIST=0` for legacy include-all experiments.
 
 ### Prerequisites
 
