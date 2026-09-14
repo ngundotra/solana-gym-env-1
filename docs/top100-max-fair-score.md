@@ -17,14 +17,22 @@
 
 Fair scoring reuses `voyager/scoring.py`:
 
-- `+1` per unique `(program_id, first_byte_of_ix_data)` on successful txs
-- Memo v1/v2 in `DEFAULT_EXCLUDED_PROGRAMS` → fair contribution **0**
+- Fair `total_reward` = unique `(program_id, first_byte_of_ix_data)` discoveries on the **top-100 usage set** (this snapshot), minus known loopholes
+- Default allowlist = those 100 program IDs minus Memo v1/v2 (`DEFAULT_EXCLUDED_PROGRAMS`)
+- Episode-deployed / synthetic programs (C1ix always-ok ELF clones, custom programs) are **outside** the set → fair **0**
 - Cap `max_unique_per_program=32` (`SCORE_MAX_UNIQUE_PER_PROGRAM`)
 - Zero-account spam-shaped ixs do not score when metas are present
 - Per-program fair ceiling = `min(32, distinct_first_bytes_that_can_succeed)`
 - **First-pass ceiling** assumes saturating the cap → `theoretical_cap = 32 × (# non-Memo programs in top 100)`
+- `raw_unfiltered_reward` stays include-all (no allowlist / Memo filter / cap) for comparison
 
-No Memo farms. Rankings are **not invented**.
+Disable the allowlist for legacy include-all experiments:
+
+```bash
+SCORE_FAIR_ALLOWLIST=0
+```
+
+No Memo farms. No synthetic-program farms. Rankings are **not invented**.
 
 ## Source
 

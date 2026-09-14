@@ -5,15 +5,22 @@ from voyager.scoring import (
     MEMO_V2,
     collect_ordered_instructions,
     decode_ix_data,
+    default_fair_allowed_programs,
     discovery_reward,
     discovery_reward_unfiltered,
     instruction_discriminator,
+    load_top100_program_ids,
     unique_instruction_key,
     unique_instructions_by_program,
 )
 
 SYSTEM = "11111111111111111111111111111111"
+TOKEN = "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
 MEMO = MEMO_V2
+# Rank 100 in docs/top100_programs_snapshot.json — last allowlisted slot.
+TOP100_LAST = "ForaPmWWcahJbcnUXM1JJKfzntvAsACddY4rm85wtt4j"
+# Rank 101 — present in the snapshot file but outside the fair top-100 set.
+SNAPSHOT_RANK_101 = "Send9wszHjEiS3hwKcPeSLsPRu5Gb62iCrJEcG4Mq3b"
 
 
 def test_decode_bytes_and_empty():
@@ -107,11 +114,68 @@ def test_non_memo_programs_still_score_under_defaults():
     instructions = collect_ordered_instructions(
         [
             {"program_id": SYSTEM, "data": b"\x02"},
-            {"program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "data": b"\x03"},
+            {"program_id": TOKEN, "data": b"\x03"},
             {"program_id": MEMO_V2, "data": b"ignored"},
         ]
     )
     assert discovery_reward(instructions, seen) == 2
+
+
+def test_default_fair_allowlist_is_top100_minus_memo():
+    """Fair score measures coverage of the checked-in top-100 usage set."""
+    top100 = load_top100_program_ids()
+    allowlist = default_fair_allowed_programs()
+    assert allowlist is not None
+    assert len(top100) == 100
+    assert len(allowlist) == 98
+    assert SYSTEM in allowlist
+    assert TOKEN in allowlist
+    assert TOP100_LAST in allowlist
+    assert MEMO_V1 not in allowlist
+    assert MEMO_V2 not in allowlist
+    assert SNAPSHOT_RANK_101 not in allowlist
+    assert MEMO_V1 in top100
+    assert MEMO_V2 in top100
+
+
+def test_c1ix_synthetic_clone_farm_fair_zero_raw_unfiltered():
+    """Always-ok ELF clones (distinct IDs, not Memo) must not climb fair."""
+    clones = [f"C1ixSyntheticFarm{i:02d}111111111111111111111111" for i in range(94)]
+    instructions = [
+        {"program_id": prog, "data": bytes([disc])}
+        for prog in clones
+        for disc in range(32)
+    ]
+    fair = discovery_reward(instructions, {})
+    raw = discovery_reward_unfiltered(instructions, {})
+    assert fair == 0
+    assert raw == 94 * 32
+
+
+def test_allowlisted_programs_still_score_beside_clone_farm():
+    clones = [
+        {"program_id": f"C1ixExtra{i:02d}11111111111111111111111111", "data": bytes([i])}
+        for i in range(8)
+    ]
+    honest = [
+        {"program_id": SYSTEM, "data": b"\x02"},
+        {"program_id": TOKEN, "data": b"\x03"},
+        {"program_id": TOP100_LAST, "data": b"\x01"},
+        {"program_id": SNAPSHOT_RANK_101, "data": b"\x01"},
+        {"program_id": MEMO_V2, "data": b"memo"},
+    ]
+    instructions = clones + honest
+    fair = discovery_reward(instructions, {})
+    raw = discovery_reward_unfiltered(instructions, {})
+    assert fair == 3  # System + Token + rank-100; not rank-101, Memo, or clones
+    assert raw == len(instructions)
+
+
+def test_fair_allowlist_disable_env_restores_legacy_include_all(monkeypatch):
+    monkeypatch.setenv("SCORE_FAIR_ALLOWLIST", "0")
+    synth = [{"program_id": "C1ixLegacyMode111111111111111111111111111", "data": b"\x07"}]
+    assert discovery_reward(synth, {}) == 1
+    assert default_fair_allowed_programs() is None
 
 
 def test_allowed_programs_still_works_with_memo_whitelist():

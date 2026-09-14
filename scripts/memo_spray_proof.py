@@ -42,6 +42,11 @@ def main() -> None:
     fair_clone, raw_clone = spray(clones, 200)
     print("clone_spray fair=", fair_clone, "raw=", raw_clone)
 
+    # C1ix-style always-ok ELF clones: distinct IDs, not Memo, 94 × 32 first-bytes.
+    c1ix = [f"C1ixSyntheticFarm{i:02d}111111111111111111111111" for i in range(94)]
+    fair_c1ix, raw_c1ix = spray(c1ix, 32)
+    print("c1ix_farm fair=", fair_c1ix, "raw=", raw_c1ix)
+
 
 if __name__ == "__main__":
     main()

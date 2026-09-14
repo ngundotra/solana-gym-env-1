@@ -23,6 +23,7 @@ from solders.signature import Signature
 from voyager.scoring import (
     DEFAULT_EXCLUDED_PROGRAMS,
     decode_ix_data,
+    default_fair_allowed_programs,
     discovery_reward,
     discovery_reward_unfiltered,
     max_unique_per_program_from_env,
@@ -116,8 +117,18 @@ class SurfpoolEnv(gym.Env):
         # The client for the Voyager environment will connect to the surfpool instance
         self.client = AsyncClient("http://127.0.0.1:8899", "confirmed")
         
-        # Program filter for specialized environments (e.g., swap-only)
-        self.allowed_programs = allowed_programs or []
+        # Fair allowlist: constructor/env-config list wins; otherwise top-100
+        # usage set minus Memo. Empty + SCORE_FAIR_ALLOWLIST=0 → no allowlist.
+        if allowed_programs:
+            self.allowed_programs = list(allowed_programs)
+        else:
+            loaded = default_fair_allowed_programs()
+            self.allowed_programs = list(loaded) if loaded else []
+        if self.allowed_programs:
+            logging.info(
+                "Fair program allowlist: %s programs",
+                len(self.allowed_programs),
+            )
         if excluded_programs is None:
             self.excluded_programs = list(DEFAULT_EXCLUDED_PROGRAMS)
         else:
@@ -362,19 +373,23 @@ class SurfpoolEnv(gym.Env):
             return 0, 0
 
         ordered_instructions = self._get_ordered_instructions(tx_result)
-        allowed = self.allowed_programs or None
+        # Omit allowed_programs when empty so discovery_reward uses its default
+        # (top-100 allowlist, or none if SCORE_FAIR_ALLOWLIST=0).
+        fair_kwargs: dict = {}
+        if self.allowed_programs:
+            fair_kwargs["allowed_programs"] = self.allowed_programs
         reward = discovery_reward(
             ordered_instructions,
             self.program_instructions_seen,
-            allowed_programs=allowed,
             excluded_programs=self.excluded_programs,
             max_unique_per_program=self.max_unique_per_program,
             apply_spam_filter=True,
+            **fair_kwargs,
         )
+        # Raw side metric: never allowlist / exclude / cap.
         raw_reward = discovery_reward_unfiltered(
             ordered_instructions,
             self.raw_program_instructions_seen,
-            allowed_programs=allowed,
         )
         if reward:
             logging.info(
