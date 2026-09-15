@@ -105,4 +105,19 @@ User received `1006677` USDC; pool WSOL `+10000000`.
 Inner ix: 18 accounts, 113B data (not the 25B taker packing). Jupiter emits a working `swap_id` inside the route — no local derivation required.
 
 ## Switch recommendation (if more Tessera turns)
-Do **not** burn more turns on Tessera `0xffff` without a tick-stream / same-slot clone. Higher odds next pair: **BisonFi → Scorch Oracle** (already seen `BiSoNHVp...` on the same jup-tagged fee-payers; Scorch is quote-provided `swap_id` like HumidiFi).
+Do **not** burn more turns on Tessera `0xffff` without a tick-stream / same-slot clone.
+
+## BisonFi (next-pair probe, not a silent switch)
+
+Jupiter `dexes=BisonFi` is quoteable. Taker layout from the CPI the program accepted:
+
+- program `BiSoNHVpsVZW2F7rx2eQ59yQwKxzU5NvBcmKshCSUypi`
+- **10 accounts**, **18 B** `0x02 | amount_in:u64le | min_out:u64le`
+- no `tickUcs` / `MRKTKV01` on the route
+
+Surfpool sig `22nFohKR51PbQ4zUqGyQXLkHjc4hi6EjBjhCkNmSrjaTRUVF22kSQ1p71ivBFvyQEqLhpzyk9G4H1xxvDwCWKbUg`
+slot `447171125`, **tx `err=null`**, BisonFi invoke[2] **47764 CU success**.
+
+Honest fill: **0 USDC out**. Token CPIs were `Transfer 0`. Jupiter return `0`. 300–2000 bps quotes fail Jupiter `custom 6001` / `0x1771` (min_out); 10000 bps lands because min_out is 0 and the cloned pool is stale vs quote slot (~500 slots). This is **not** a HumidiFi-class economic win — the program accepts the Jupiter-shaped ix on Surfpool, unlike Tessera `0xffff`.
+
+Scorch still untried. Oracle-shaped `ojh19oja…Scorch` on that route.

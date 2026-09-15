@@ -22,6 +22,8 @@ JUP_LITE = "https://lite-api.jup.ag/swap/v1"
 SURFPOOL = "http://127.0.0.1:8899"
 TESSERA = "TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH"
 HUMIDIFI = "9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp"
+BISON = "BiSoNHVpsVZW2F7rx2eQ59yQwKxzU5NvBcmKshCSUypi"
+SCORCH = "SCoRcH8c2dpjvcJD6FiPbCSQyQgu3PcUAWj2Xxx3mqn"
 
 
 def rpc(url: str, method: str, params):
@@ -69,6 +71,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dex", default="TesseraV")
     ap.add_argument("--amount", type=int, default=10_000_000)
+    ap.add_argument("--slippage-bps", type=int, default=300)
     ap.add_argument("--out", type=Path, default=Path("tools/re/notes/surfpool_replay.json"))
     args = ap.parse_args()
 
@@ -98,7 +101,7 @@ def main() -> int:
                 "inputMint": SOL,
                 "outputMint": USDC,
                 "amount": args.amount,
-                "slippageBps": 300,
+                "slippageBps": args.slippage_bps,
                 "dexes": args.dex,
                 "onlyDirectRoutes": "true",
             }
@@ -122,7 +125,7 @@ def main() -> int:
                     "inputMint": USDC,
                     "outputMint": SOL,
                     "amount": args.amount,
-                    "slippageBps": 300,
+                    "slippageBps": args.slippage_bps,
                     "dexes": args.dex,
                     "onlyDirectRoutes": "true",
                 }
@@ -237,6 +240,8 @@ def main() -> int:
     logs = ((rec or {}).get("meta") or {}).get("logMessages") or []
     report["hit_tessera"] = any(TESSERA in x for x in logs)
     report["hit_humidifi"] = any(HUMIDIFI in x for x in logs)
+    report["hit_bison"] = any(BISON in x for x in logs)
+    report["hit_scorch"] = any(SCORCH in x for x in logs)
     report["success"] = rec is not None and report["receipt_err"] is None
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
