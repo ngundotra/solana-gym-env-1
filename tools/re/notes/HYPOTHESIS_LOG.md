@@ -15,7 +15,16 @@ Ignore BAM MM `0x0d` / `KAM\0` and HumidiFi 65B/3acc MM updates.
 | OKX router | `okxlabs/DEX-Router-Solana-V1` `humidifi.rs` | **Stubbed** (`AdapterAbort`); XOR lived in older `ce15b2da` (git object gone from rewrite) |
 | `swaps` crate | docs.rs | Stale HumidiFi marker `0x14` / Tessera 12-acc (live is 14) |
 
-Grok CLI: **not installed**. No JWT rewrite. Landed HumidiFi without it.
+Grok CLI: **binary 1.0.30 on PATH** (`~/.local/bin/grok`). Auth install **stopped**: parent markers were the literal `PLACEHOLDER` — did not write `~/.grok/auth.json`, did not invent JWTs. Ask parent for one-shot real JSON.
+
+## Tessera H6 — Ghidra/ELF + tick program
+Dumped `tickUcsEQegChaAuo9VYQQztB4ZGApY6ZT4FkULWY6N` (148368 B, SBF).
+Tick ELF (`programs/market-tick/src/processor.rs`) errors:
+`Instruction slot does not match the runtime clock slot`;
+`Signer is not the signer selected for this slot`;
+`Timestamp must strictly increase within a slot`.
+Tessera ELF embeds `MRKTKV01` and `src/utils/batch_clock.rs`.
+Ghidra 12 eBPF import of Tessera: **236 functions**. See `notes/ghidra/GHIDRA_PASS.md`.
 
 ## Tessera
 
