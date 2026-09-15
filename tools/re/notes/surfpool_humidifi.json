@@ -1,0 +1,159 @@
+{
+  "dex": "HumidiFi",
+  "user": "Chjk56WAPt3AYY8MNKn3b3n2i4tJ5M4y3iVJmhjaxFJ4",
+  "airdrop": "3f1h1jJcR2g3AhsTRdDY2Lqq1P7R2ZuH8b1vmDuv4sQbrEQSTZK9KCL6iPU5JwJhyb7uh7h2cZTcWiNoGFa5LyQV",
+  "quote_keys": [
+    "inputMint",
+    "inAmount",
+    "outputMint",
+    "outAmount",
+    "otherAmountThreshold",
+    "swapMode",
+    "slippageBps",
+    "platformFee",
+    "priceImpactPct",
+    "routePlan",
+    "contextSlot",
+    "timeTaken",
+    "swapUsdValue",
+    "mostReliableAmmsQuoteReport",
+    "longtailMarketQuoteReport",
+    "useIncurredSlippageForQuoting",
+    "useRewards",
+    "otherRoutePlans",
+    "loadedLongtailToken",
+    "instructionVersion"
+  ],
+  "routePlan": [
+    {
+      "swapInfo": {
+        "ammKey": "DB3sUCP2H4icbeKmK6yb6nUxU5ogbcRHtGuq7W2RoRwW",
+        "label": "HumidiFi",
+        "inputMint": "So11111111111111111111111111111111111111112",
+        "outputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "inAmount": "10000000",
+        "outAmount": "1007417",
+        "updateContextSlot": "447169742"
+      },
+      "percent": 100,
+      "bps": null
+    }
+  ],
+  "error": null,
+  "swap_instruction_keys": [
+    "tokenLedgerInstruction",
+    "computeBudgetInstructions",
+    "setupInstructions",
+    "swapInstruction",
+    "cleanupInstruction",
+    "otherInstructions",
+    "addressLookupTableAddresses",
+    "prioritizationFeeLamports",
+    "computeUnitLimit",
+    "prioritizationType",
+    "simulationSlot",
+    "dynamicSlippageReport",
+    "simulationError",
+    "addressesByLookupTableAddress",
+    "blockhashWithMetadata",
+    "timeTaken",
+    "createAtaTimeTaken"
+  ],
+  "built_ixs": [
+    {
+      "program": "ComputeBudget111111111111111111111111111111",
+      "data_hex": "02c05c1500",
+      "nacc": 0,
+      "selector": 2
+    },
+    {
+      "program": "ComputeBudget111111111111111111111111111111",
+      "data_hex": "030417010000000000",
+      "nacc": 0,
+      "selector": 3
+    },
+    {
+      "program": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+      "data_hex": "01",
+      "nacc": 6,
+      "selector": 1
+    },
+    {
+      "program": "11111111111111111111111111111111",
+      "data_hex": "020000008096980000000000",
+      "nacc": 2,
+      "selector": 2
+    },
+    {
+      "program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "data_hex": "11",
+      "nacc": 1,
+      "selector": 17
+    },
+    {
+      "program": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+      "data_hex": "01",
+      "nacc": 6,
+      "selector": 1
+    },
+    {
+      "program": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+      "data_hex": "e517cb977ae3ad2a01000000b990c087a3a0010000c63052aa2123cd539aa5153e33114b1d90c82a5f18571480ff3f743296c8f3f4081860174dca091a41017dea6ddda51b016400018096980000000000395f0f00000000002c0100",
+      "nacc": 29,
+      "selector": 229
+    },
+    {
+      "program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "data_hex": "09",
+      "nacc": 3,
+      "selector": 9
+    }
+  ],
+  "sig": "41wS9DHaEQLbXQB5wuHpxN8yJqp8gmaDMhJ1wLXXHaDm6thN4Vq9RjjcASMTijp8sAbPneu7VD9hbgqWJ7yqzD7T",
+  "receipt_err": null,
+  "logs": [
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program 11111111111111111111111111111111 invoke [2]",
+    "Program 11111111111111111111111111111111 success",
+    "Program log: Initialize the associated token account",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 38 of 1373986 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 235 of 1371524 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 14924 of 1385930 compute units",
+    "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 invoke [1]",
+    "Program log: Instruction: Route",
+    "Program 11111111111111111111111111111111 invoke [2]",
+    "Program 11111111111111111111111111111111 success",
+    "Program 9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp invoke [2]",
+    "Program 11111111111111111111111111111111 invoke [3]",
+    "Program 11111111111111111111111111111111 success",
+    "Program 11111111111111111111111111111111 invoke [3]",
+    "Program 11111111111111111111111111111111 success",
+    "Program log: \ud83e\udd90",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 76 of 1285544 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 83 of 1284340 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program data: JhDLQhhYwIdFLucjQDQM2fyb8Svhn4tEc2QZjRNjk1I7L5qA4fgIgirJKHDjaAcf6s9+a9l2CVllWYSvVZIHpkUKp5Q6jO/Vv5UvDS6eN94wSzulVKGgC/xW3GTCeByOgWtRMH78x2t9mKcEx0+H2l804ruYvH+6HFAqZ4NXRe7egt/mQaMNVkN7vUR2RfKpVDwLq1IbWO+Y8MZnn1dZ73hjbqM78KEQYQ8/mGaooBCd8MNnmldc75zwwmebV13v0YHohbdXUu8ramMOhldT7xFmV2eWV1DvxazBZ5dXUe+THnWu7gxQ737zyGeRV1fvYOHLZ5JXVO+U8cpnk1dV7w==",
+    "Program 9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp consumed 81635 of 1365067 compute units",
+    "Program 9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp success",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 invoke [2]",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 consumed 106 of 1281430 compute units",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 success",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 consumed 90659 of 1371006 compute units",
+    "Program return: JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 VVwPAAAAAAA=",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 success",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 118 of 1280347 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+  ],
+  "hit_tessera": false,
+  "hit_humidifi": true,
+  "success": true
+}
