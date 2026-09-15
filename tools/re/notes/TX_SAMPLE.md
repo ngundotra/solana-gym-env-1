@@ -18,6 +18,8 @@ Live Jupiter program: `JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4`.
 
 Constant extras on every hop: `[12]=BAT1Ndpu…` `[13]=4cG31VNF…` (tick `MRKTKV01`).
 
+Fresh Jupiter `dexes=TesseraV` quote (this pass) still uses that 14-account CPI. Latest **program-address** sigs are `0x13`+2acc+800B (MM-style; some `custom 20`) — not taker hops. BpZpRbuy is quiet for Tessera CPI right now.
+
 ## HumidiFi 25B taker
 
 | sig (prefix) | parent | nacc | selector | swap_id | amount_in |
@@ -26,8 +28,11 @@ Constant extras on every hop: `[12]=BAT1Ndpu…` `[13]=4cG31VNF…` (tick `MRKTK
 | `5bTBUTcX…` | DFlow | 18 | `0x30` | 4934971329500117497 | 761538242 |
 | `FbaHTE4P…` | Jupiter `JUP6…V4` | 15 | `0x14` | 11462163793966563510 | 903321415 |
 | `3Y1ueenF…` | Jupiter | 15 | `0x14` | 10580593933843700228 | 638841171 |
+| `5hL79XCn…` | Jupiter `JUP6…V4` | 15 | `0x14` | 5281089746916497200 | 1277296480 |
+| `mPFjy2Hu…` | DFlow | 18 | `0x30` | 3456752507807193330 | 3298493 |
+| `mVPodt3x…` | Binance Wallet `B3111yJC…` | 18 | `0x30` | 16652736801701732368 | 52163827 |
 
-Jupiter 15acc includes `jitodontfront1111111111111111JustUseJupiter` + `J1to1yuf…`.
+Jupiter 15acc includes `jitodontfront1111111111111111JustUseJupiter` + `J1to1yuf…`. DFlow/Binance 18acc uses live marker `0x30`.
 
 ## Surfpool proof
 

@@ -15,7 +15,7 @@ Ignore BAM MM `0x0d` / `KAM\0` and HumidiFi 65B/3acc MM updates.
 | OKX router | `okxlabs/DEX-Router-Solana-V1` `humidifi.rs` | **Stubbed** (`AdapterAbort`); XOR lived in older `ce15b2da` (git object gone from rewrite) |
 | `swaps` crate | docs.rs | Stale HumidiFi marker `0x14` / Tessera 12-acc (live is 14) |
 
-Grok CLI: **binary 1.0.30 on PATH** (`~/.local/bin/grok`). Auth install **stopped**: parent markers were the literal `PLACEHOLDER` — did not write `~/.grok/auth.json`, did not invent JWTs. Ask parent for one-shot real JSON.
+Grok CLI: **binary 1.0.30 on PATH** (`~/.local/bin/grok`). Auth install **stopped** (this turn and prior): parent markers were the literal `PLACEHOLDER` — did not write `~/.grok/auth.json`, did not invent or rewrite JWTs. Ask parent for one-shot real JSON. `expires_at` note was ~2026-09-15T06:02Z.
 
 ## Tessera H6 — Ghidra/ELF + tick program
 Dumped `tickUcsEQegChaAuo9VYQQztB4ZGApY6ZT4FkULWY6N` (148368 B, SBF).
@@ -25,6 +25,17 @@ Tick ELF (`programs/market-tick/src/processor.rs`) errors:
 `Timestamp must strictly increase within a slot`.
 Tessera ELF embeds `MRKTKV01` and `src/utils/batch_clock.rs`.
 Ghidra 12 eBPF import of Tessera: **236 functions**. See `notes/ghidra/GHIDRA_PASS.md`.
+
+### H7 — tick account layout (proven)
+88 B `MRKTKV01`: signer[32] @8, **slot u64 @40**, prev/curr timestamp ns @48/@56, seq @64, target interval 30ms @72, last interval @80.
+BAT1 slot u64 @0. Live tick tracks mainnet clock within ~6 slots; Surfpool slot lagged ~300+.
+Parser + offline fixture: `tick_codec.py` / `tests/test_tick_codec.py`.
+
+### H8 — recent Tessera program sigs are not 0x10
+Latest `getSignaturesForAddress(Tessera)` rows are **`0x13` + 2 accounts + 800 B** (some `custom 20`). Not the Jupiter taker. Do not farm. BpZpRbuy cluster is currently quiet for Tessera CPI.
+
+### H9 — Jupiter still quotes Tessera / BisonFi / Scorch
+Fresh lite-api `onlyDirectRoutes` quotes (10M lamports SOL→USDC) all returned routes. Tessera route still 14acc CPI ending in BAT1+tick. BisonFi route has **no tick account**. Scorch route includes `ojh19oja…Scorch` (oracle-shaped). See `notes/jup_route_layouts.json`.
 
 ## Tessera
 
@@ -78,7 +89,11 @@ Morrell/OKX/swaps: XOR `HUMIDIFI_IX_DATA_KEY` + rolling `0x0001000100010001` on 
 | Jupiter Route (this run) | `JUP6...V4` | 18 | **113B** | obfuscated blob |
 | MM update | — | 3 | 65B | ignore |
 
-`swap_id` is a nonzero u64 from the aggregator quote (11 unique / 12 samples). Not slot-derived in the 25B header.
+`swap_id` is a nonzero u64 from the aggregator quote (unique per hop). Not slot-derived in the 25B header.
+
+Third parent (this pass): `B3111yJCeHBcA1bizdJjUFPALfhAfSRnAbJzGUtnt56A` (Binance Wallet router) → 18acc / selector **`0x30`**.
+
+HumidiFi ELF embeds `GIT_HASH:26ebfd833cbb015b1cd1160840f8620c24f19b67` and `contract/src/routers/{dflow,jupiter}.rs` — the program itself has router-shaped modules. Hash not found on public GitHub commit search.
 
 ### H3 — Jupiter HumidiFi on Surfpool → **WIN**
 Quote `dexes=HumidiFi` SOL→USDC 10_000_000 lamports.

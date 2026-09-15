@@ -1,0 +1,41 @@
+{
+  "captured": "2026-09-15",
+  "quote": "https://lite-api.jup.ag/swap/v1/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=10000000&slippageBps=100&onlyDirectRoutes=true",
+  "routes": {
+    "TesseraV": {
+      "program": "TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH",
+      "amm": "FLckHLGMJy5gEoXWwcE68Nprde1D4araK4TGLw4pQq2n",
+      "jupiter_route_nacc": 24,
+      "cpi_accounts_from_route_index_10": [
+        "8ekCy2jHHUbW2yeNGFWYJT9Hm9FW7SvZcZK66dSZCDiF",
+        "FLckHLGMJy5gEoXWwcE68Nprde1D4araK4TGLw4pQq2n",
+        "<user>",
+        "<vault>",
+        "9t4P5wMwfFkyn92Z7hf463qYKEZf8ERVZsGBEPNp8uJx",
+        "<user_ata>",
+        "<user_ata>",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "Sysvar1nstructions1111111111111111111111111",
+        "BAT1Ndpu5gbLTp2AZkSXP79LJBZfCH4B3zGhi6LtvdhK",
+        "4cG31VNF9TzFinNc7BmnjhFvGjxkY3sCETVMtMgbrhPs"
+      ],
+      "notes": "14-account 0x10 CPI unchanged. Tick + BAT1 still present."
+    },
+    "BisonFi": {
+      "program": "BiSoNHVpsVZW2F7rx2eQ59yQwKxzU5NvBcmKshCSUypi",
+      "amm": "8FnX3xo2yYw3EUE6w3nQA4GfXGS9wpK6oj3veJpbFzLo",
+      "jupiter_route_nacc": 21,
+      "notes": "No tickUcs / MRKTKV01 account on the Jupiter route. Higher Surfpool odds than Tessera."
+    },
+    "Scorch": {
+      "program": "SCoRcH8c2dpjvcJD6FiPbCSQyQgu3PcUAWj2Xxx3mqn",
+      "amm": "FnhxUP3dcQbypCUmGWw55ijxPBxifPT558UQSCYDfcCU",
+      "oracle_like": "ojh19ojaKduoJZuaJADhcVGp4xt1TcdAvZmpVsCorch",
+      "jupiter_route_nacc": 27,
+      "notes": "Oracle-shaped account on the route; may have a freshness gate like Tessera."
+    }
+  }
+}

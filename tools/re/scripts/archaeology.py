@@ -189,7 +189,9 @@ def main() -> int:
                     if not tag:
                         continue
                     counts[tag] += 1
-                    if not tag.startswith("keep_"):
+                    # Keep every 0x10+14acc hop (Jupiter or not) so parent
+                    # detection misses still land in the sample table.
+                    if tag not in {"keep_jup_0x10_14", "0x10_14_not_jup"}:
                         continue
                     seen += 1
                     row = {

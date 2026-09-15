@@ -1,0 +1,143 @@
+{
+  "humidifi.so": {
+    "file": "humidifi.so",
+    "size": 339440,
+    "git_hashes": [
+      "26ebfd833cbb015b1cd1160840f8620c24f19b67"
+    ],
+    "rust_paths": [
+      "contract/src/arith.rs",
+      "contract/src/dexes/directional_arb.rs",
+      "contract/src/instructions.rs",
+      "contract/src/ops.rs",
+      "contract/src/router_swap.rs",
+      "contract/src/routers/dflow.rs",
+      "contract/src/routers/jupiter.rs",
+      "contract/src/stateupdate.rs",
+      "src/arith.rs",
+      "src/cmp.rs",
+      "src/internal.rs",
+      "src/lib.rs",
+      "src/pubkey.rs",
+      "toxmodel/src/lib.rs"
+    ],
+    "magics": [],
+    "interesting_strings": [
+      "dflow_score",
+      "rotate_pool_authority",
+      "routerv1",
+      "contract/src/instructions.rspoolv1ruserv1",
+      "rotate_pool_authorityInvalid Exp valuecontract/src/ops.rscontract/src/routers/dflow.rscontract/src/routers/jupiter.rscon",
+      "tract/src/router_swap.rs",
+      "GIT_HASH:26ebfd833cbb015b1cd1160840f8620c24f19b67arithmetic operation overflow** PANICKED **toxmodel/src/lib.rsTargetAli",
+      "gnmentGreaterAndInputNotAlignedOutputSliceWouldHaveSlopSizeMismatchAlignmentMismatchsrc/lib.rsUnable to find a viable pr",
+      "GIT_HASH",
+      "sol_get_last_restart_slot"
+    ]
+  },
+  "tessera.so": {
+    "file": "tessera.so",
+    "size": 576932,
+    "git_hashes": [],
+    "rust_paths": [
+      "src/de/mod.rs",
+      "src/encode.rs",
+      "src/entrypoint.rs",
+      "src/escape.rs",
+      "src/fmt.rs",
+      "src/fmt/mod.rs",
+      "src/fmt/num.rs",
+      "src/instruction.rs",
+      "src/lib.rs",
+      "src/num/bignum.rs",
+      "src/num/diy_float.rs",
+      "src/num/flt2dec/mod.rs",
+      "src/num/flt2dec/strategy/dragon.rs",
+      "src/num/flt2dec/strategy/grisu.rs",
+      "src/processor.rs",
+      "src/raw_vec.rs",
+      "src/state.rs",
+      "src/str/mod.rs",
+      "src/string.rs",
+      "src/unicode/printable.rs",
+      "src/unicode/unicode_data.rs",
+      "src/utils/batch_clock.rs",
+      "src/utils/set.rs",
+      "src/utils/swap_math.rs"
+    ],
+    "magics": [
+      "MRKT"
+    ],
+    "interesting_strings": [
+      "mInstruction::AllocateWithSeed with 4 elementsstruct variant SystemInstruction::AssignWithSeed with 3 elementsstruct var",
+      "iant SystemInstruction::CreateAccountWithSeed with 5 elementsstruct variant SystemInstruction::TransferWithSeed with 3 e",
+      "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyzAC_04src/utils/batch_clock.rsG",
+      "src/utils/swap_math.rssrc/entrypoint.rsUnexpected variant tag: internal error: entered unreachable codesrc/instruction.r",
+      "rage mediumfilesystem loop or indirection limit (e.g. symlink loop)stale network file handleinvalid input parameterinval",
+      "ADirectoryDirectoryNotEmptyReadOnlyFilesystemFilesystemLoopStaleNetworkFileHandleInvalidInputInvalidDataWriteZeroStorage",
+      "orrowed: :[called `Option::unwrap()` on a `None` valuepanicked at ",
+      "sol_get_clock_sysvar",
+      "sol_get_last_restart_slot"
+    ]
+  },
+  "tick.so": {
+    "file": "tick.so",
+    "size": 148368,
+    "git_hashes": [],
+    "rust_paths": [
+      "programs/market-tick/src/lib.rs",
+      "programs/market-tick/src/processor.rs",
+      "src/bpf_writer.rs",
+      "src/fmt.rs",
+      "src/fmt/mod.rs",
+      "src/internal.rs",
+      "src/lib.rs",
+      "src/raw/mod.rs",
+      "src/raw_vec/mod.rs",
+      "src/ser/mod.rs",
+      "src/slice.rs",
+      "src/str/mod.rs",
+      "src/string.rs",
+      "src/syscalls.rs",
+      "src/unicode/printable.rs"
+    ],
+    "magics": [
+      "MRKT"
+    ],
+    "interesting_strings": [
+      "Instruction slot does not match the runtime clock slot",
+      "Signer is not the signer selected for this slot",
+      "Timestamp must strictly increase within a slot",
+      "Target interval cannot change within a slot",
+      "market-tick: initialized",
+      "programs/market-tick/src/processor.rs",
+      "IO ErrorDeadlockInstruction slot does not match the runtime clock slotSigner is not the signer selected for this slotTim",
+      "estamp must strictly increase within a slotTarget interval cannot change within a slot",
+      "payermarket_tickv1pda",
+      "Some <= None    programs/market-tick/src/lib.rsmarket-tick: initializedfailed to write whole buffer",
+      "ccount: a Display implementation returned an error unexpectedlyErrorCustomInvalidArgumentInvalidInstructionDataInvalidAc",
+      "countDataAccountDataTooSmallInsufficientFundsIncorrectProgramIdMissingRequiredSignatureAccountAlreadyInitializedUninitia",
+      "pportedSysvarIllegalOwnerMaxAccountsDataAllocationsExceededInvalidReallocMaxInstructionTraceLengthExceededBuiltinProgram",
+      "uireGteViolatedAccountDiscriminatorAlreadySetAccountDiscriminatorNotFoundAccountDiscriminatorMismatchAccountDidNotDeseri",
+      "ReallocsDeclaredProgramIdMismatchTryingToInitPayerAsProgramAccountInvalidNumericConversionDeprecatedInstruction discrimi",
+      "nator not providedFallback functions are not supportedThe program could not deserialize the given instructionThe program",
+      " could not serialize the given instructionThe program was compiled without idl instructionsInvalid program given to the ",
+      "IDL instructionIDL account must be empty in order to resize, try closing firstThe program was compiled without `event-cp",
+      "dA token owner constraint was violatedA mint mint authority constraint was violatedA mint freeze authority constraint wa",
+      "n authority constraint was violatedA group pointer extension group address constraint was violatedA group member pointer",
+      " extension constraint was violatedA group member pointer extension authority constraint was violatedA group member point",
+      " extension authority constraint was violatedA metadata pointer extension metadata address constraint was violatedA close",
+      " authority constraint was violatedA close authority extension authority constraint was violatedA permanent delegate exte",
+      "nstraint was violatedA transfer hook extension authority constraint was violatedA transfer hook extension transfer hook ",
+      "led to serialize the accountNot enough account keys given to the instructionThe given account is owned by a different pr",
+      "n account is not owned by the system programThe program expected this account to be already initializedThe given account",
+      "The arguments provided to a program instruction were invalidAn instruction's data contents was invalidAn account's data ",
+      "contents was invalidAn account's data was too smallAn account's balance was too small to complete the instructionThe acc",
+      "ount did not have the expected program idA signature was required but not foundAn initialize instruction was sent to an ",
+      "account that has already been initializedAn attempt to operate on an account that hasn't been initializedThe instruction",
+      "ransactionAccount data reallocation was invalidInstruction trace length exceeded the maximum allowed per transactionBuil",
+      "DirectoryNotEmptyReadOnlyFilesystemFilesystemLoopStaleNetworkFileHandleInvalidInputInvalidDataWriteZeroStorageFullNotSee",
+      "sol_get_clock_sysvar"
+    ]
+  }
+}

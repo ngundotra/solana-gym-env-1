@@ -1,0 +1,34 @@
+{
+  "clock": {
+    "slot": 447171209,
+    "epoch_start_timestamp": 1789434263,
+    "epoch": 1035,
+    "leader_schedule_epoch": 1036,
+    "unix_timestamp": 1789450442
+  },
+  "tick": {
+    "pubkey": "4cG31VNF9TzFinNc7BmnjhFvGjxkY3sCETVMtMgbrhPs",
+    "owner": "tickUcsEQegChaAuo9VYQQztB4ZGApY6ZT4FkULWY6N",
+    "lamports": 1503360,
+    "data_hex": "4d524b544b56303196fa7d4a92db045534df681fc0d8699e399df52d2e6eaec7699a9808b33aab19834aa71a0000000010da1304b267d51891d68410b267d518070000000000000080c3c90100000000bae5c90100000000",
+    "len": 88,
+    "magic": "MRKTKV01",
+    "magic_ok": true,
+    "signer_hex": "96fa7d4a92db045534df681fc0d8699e399df52d2e6eaec7699a9808b33aab19",
+    "slot": 447171203,
+    "prev_ts_ns": 1789450441219889680,
+    "curr_ts_ns": 1789450441428620945,
+    "seq": 7,
+    "target_interval_ns": 30000000,
+    "last_interval_ns": 30008762,
+    "slot_delta": -6
+  },
+  "bat1": {
+    "pubkey": "BAT1Ndpu5gbLTp2AZkSXP79LJBZfCH4B3zGhi6LtvdhK",
+    "owner": "TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH",
+    "lamports": 15144960,
+    "len": 2048,
+    "head_hex": "684aa71a000000000200020200000002010000000202020002000200010200020102020002020000000000000000030000020000000202020203000200020201",
+    "slot": 447171176
+  }
+}
