@@ -1,5 +1,6 @@
 """Offline parse of a captured Tessera tick account (no RPC)."""
 
+from tools.re.scripts.tessera_freshness import pack_clock, parse_clock
 from tools.re.scripts.tick_codec import (
     TICK_MAGIC,
     parse_bat1_slot,
@@ -49,3 +50,11 @@ def test_patch_bat1_slot():
     patched = patch_bat1_slot(raw, 99)
     assert parse_bat1_slot(patched) == 99
     assert patched[8:] == raw[8:]
+
+
+def test_pack_clock_roundtrip():
+    raw = pack_clock(448453579, 1789823115, 1038, 1039, 1789833150)
+    c = parse_clock(raw)
+    assert c["slot"] == 448453579
+    assert c["unix_timestamp"] == 1789833150
+    assert c["epoch"] == 1038
