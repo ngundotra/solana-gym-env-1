@@ -63,8 +63,18 @@ Live parent: `JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4`.
 
 `swaps` crate omitted [12]/[13].
 
-### H3 — Jupiter-wrapped swap on Surfpool
+### H3 — Jupiter-wrapped swap on Surfpool (stale clock → 0xffff)
 Fresh `dexes=TesseraV` quote + swap-instructions. Setup (ATA/wrap) succeeded. Jupiter `Route` CPI'd Tessera (~62872 CU) → **`0xffff`**.
+
+### H10 — tick freshness fix → **WIN**
+Root cause of H3/H4: Surfpool `timeTravel` leaves `SysvarC1ock.slot` as the **epoch slotIndex** (~37k) while the tick stores the **absolute slot**. Tessera compares those via `sol_get_clock_sysvar`.
+
+Fix (`tessera_freshness.py`): clone tick+BAT1+global+pool from mainnet, `pauseClock`, then `surfnet_setAccount` the Clock sysvar to `{slot: tick.slot, unix: tick.curr_ts_ns/1e9}`.
+
+Surfpool sig `4jZZgmg6P3dNaiGwuNjm2kYTK7VzysufPxqKkZtjvbqSPRNjdDB2Nr7iCC18vk8JhLJNtBxnpC4aCZKkLupMLr5i`
+slot `448453584`, `err=null`.
+Inner: Tessera `0x10` + 14acc + 18B (`side=1`, `amount_in=10_000_000`) / **71367 CU success**.
+**Balances:** user USDC **+1,116,749**; pool WSOL **+10,000,000**; pool USDC **-1,116,749**.
 
 ### H4 — replay known-good mainnet tx
 Sig `2AUbcsTE...` (slot 447168171, mainnet `err=null`) simulated on Surfpool with `sigVerify=false` + `replaceRecentBlockhash` → **same `0xffff`**.

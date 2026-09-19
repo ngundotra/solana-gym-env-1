@@ -51,5 +51,7 @@ BAT1 (`BAT1Ndpu…`, Tessera-owned, 2048 B) stores a **slot u64 at offset 0** (s
 
 Surfpool local clock lagged mainnet by hundreds of slots while the live tick tracked clock within 6. One-shot clones cannot satisfy `Instruction slot does not match the runtime clock slot`.
 
+**Fix that landed the swap:** `surfnet_setAccount` on `SysvarC1ock` with `slot = tick.slot` (absolute). `surfnet_timeTravel` alone writes epoch `slotIndex` into Clock (~37k) and Tessera still returns `0xffff`. See H10 / sig `4jZZgmg6…`.
+
 ## HumidiFi ELF crumbs
 `GIT_HASH:26ebfd833cbb015b1cd1160840f8620c24f19b67` plus `contract/src/routers/{dflow,jupiter}.rs`. See `notes/ELF_CATALOG.md`. SBF `0x107` still has no Ghidra language; rizin strings only.

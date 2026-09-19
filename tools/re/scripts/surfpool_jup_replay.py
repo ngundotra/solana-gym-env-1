@@ -72,6 +72,12 @@ def main() -> int:
     ap.add_argument("--dex", default="TesseraV")
     ap.add_argument("--amount", type=int, default=10_000_000)
     ap.add_argument("--slippage-bps", type=int, default=300)
+    ap.add_argument(
+        "--refresh-tessera",
+        choices=["off", "time_travel", "patch_slot", "stream"],
+        default="off",
+        help="Align Tessera tick/BAT1 with Surfpool clock before send",
+    )
     ap.add_argument("--out", type=Path, default=Path("tools/re/notes/surfpool_replay.json"))
     args = ap.parse_args()
 
@@ -84,6 +90,19 @@ def main() -> int:
     from solders.system_program import transfer, TransferParams
 
     wait_surfpool()
+    if args.refresh_tessera != "off":
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from tessera_freshness import refresh as refresh_tessera
+
+        report_pre = {"dex": args.dex}
+        try:
+            report_pre["tessera_freshness"] = refresh_tessera(mode=args.refresh_tessera)
+        except Exception as exc:
+            report_pre["tessera_freshness_error"] = str(exc)
+        # keep going even if refresh is partial; send will prove the gate
+    else:
+        report_pre = {}
+
     kp = Keypair()
     user = str(kp.pubkey())
     airdrop = rpc(SURFPOOL, "requestAirdrop", [user, 5_000_000_000])
@@ -112,6 +131,7 @@ def main() -> int:
         "dex": args.dex,
         "user": user,
         "airdrop": airdrop,
+        **report_pre,
         "quote_keys": list(quote.keys()),
         "routePlan": quote.get("routePlan"),
         "error": quote.get("error") or quote.get("message"),

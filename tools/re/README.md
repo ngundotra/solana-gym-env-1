@@ -7,6 +7,8 @@ See `notes/HYPOTHESIS_LOG.md` and `notes/TX_SAMPLE.md`.
 ./tools/re/scripts/dump_programs.sh
 python3 tools/re/scripts/elf_catalog.py
 python3 tools/re/scripts/tick_layout.py   # live MRKTKV01 slot vs clock
+python3 tools/re/scripts/tessera_freshness.py --mode time_travel
+python3 tools/re/scripts/surfpool_jup_replay.py --dex TesseraV --refresh-tessera time_travel --slippage-bps 500
 
 # Mainnet clustering (Tessera 0x10+14 Jupiter-only; HumidiFi 25B taker)
 python3 tools/re/scripts/archaeology.py --target both --limit 40

@@ -1,6 +1,12 @@
 """Offline parse of a captured Tessera tick account (no RPC)."""
 
-from tools.re.scripts.tick_codec import TICK_MAGIC, parse_bat1_slot, parse_tick
+from tools.re.scripts.tick_codec import (
+    TICK_MAGIC,
+    parse_bat1_slot,
+    parse_tick,
+    patch_bat1_slot,
+    patch_tick_slot,
+)
 
 # Captured 2026-09-15, clock slot 447170946, tick slot 447170943 (delta -3).
 TICK_HEX = (
@@ -28,3 +34,18 @@ def test_tick_magic_and_slot():
 
 def test_bat1_slot_header():
     assert parse_bat1_slot(bytes.fromhex(BAT1_HEAD)) == 447170932
+
+
+def test_patch_tick_slot_only_rewrites_offset_40():
+    raw = bytes.fromhex(TICK_HEX)
+    patched = patch_tick_slot(raw, 447171000)
+    assert parse_tick(patched).slot == 447171000
+    assert patched[:40] == raw[:40]
+    assert patched[48:] == raw[48:]
+
+
+def test_patch_bat1_slot():
+    raw = bytes.fromhex(BAT1_HEAD + "00" * 8)
+    patched = patch_bat1_slot(raw, 99)
+    assert parse_bat1_slot(patched) == 99
+    assert patched[8:] == raw[8:]

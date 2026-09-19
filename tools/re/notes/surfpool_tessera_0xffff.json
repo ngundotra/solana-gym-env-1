@@ -27,5 +27,10 @@
     "len": 2048,
     "mainnet_vs_surfpool": "bytes diverge"
   },
-  "gate": "Fresh tickUcs MRKTKV01 slot oracle + BAT1 book. Surfpool one-shot clones go stale; 0xffff even under Jupiter CPI."
+  "gate": "Fresh tickUcs MRKTKV01 slot oracle + BAT1 book. Surfpool one-shot clones go stale; 0xffff even under Jupiter CPI.",
+  "superseded_by": {
+    "fix": "surfnet_setAccount on SysvarC1ock to absolute tick.slot (timeTravel leaves slotIndex)",
+    "sig": "4jZZgmg6P3dNaiGwuNjm2kYTK7VzysufPxqKkZtjvbqSPRNjdDB2Nr7iCC18vk8JhLJNtBxnpC4aCZKkLupMLr5i",
+    "user_usdc_delta": 1116749
+  }
 }

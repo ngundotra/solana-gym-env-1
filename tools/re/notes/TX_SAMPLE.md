@@ -39,7 +39,8 @@ Jupiter 15acc includes `jitodontfront1111111111111111JustUseJupiter` + `J1to1yuf
 | program | result | sig | ix |
 |---|---|---|---|
 | HumidiFi | **success** | `41wS9DHaEQLbXQB5wuHpxN8yJqp8gmaDMhJ1wLXXHaDm6thN4Vq9RjjcASMTijp8sAbPneu7VD9hbgqWJ7yqzD7T` | Jupiter Route → HumidiFi 18acc / 113B / 81635 CU; +10000000 WSOL in, +1006677 USDC out |
-| Tessera | **0xffff gate** | Jupiter quote sim + mainnet `2AUbcsTE…` replay | Tessera CPI 62872 CU then `custom 0xffff`; tick/BAT1 clone stale |
+| Tessera | **0xffff** (stale Clock.slot=slotIndex) | Jupiter quote / mainnet replay | CPI 62872 CU then `custom 0xffff` |
+| Tessera | **WIN** (Clock patched to tick.slot) | `4jZZgmg6P3dNaiGwuNjm2kYTK7VzysufPxqKkZtjvbqSPRNjdDB2Nr7iCC18vk8JhLJNtBxnpC4aCZKkLupMLr5i` | `0x10` 14acc 18B / 71367 CU; user USDC **+1116749**; pool WSOL **+10000000** |
 | BisonFi | **program success, 0-fill** | `22nFohKR51PbQ4zUqGyQXLkHjc4hi6EjBjhCkNmSrjaTRUVF22kSQ1p71ivBFvyQEqLhpzyk9G4H1xxvDwCWKbUg` | Jupiter Route → BisonFi 10acc / 18B `0x02` / 47764 CU; token transfers were 0; Jupiter return 0 |
 
 ## BisonFi `0x02` + 10 accounts (Jupiter)

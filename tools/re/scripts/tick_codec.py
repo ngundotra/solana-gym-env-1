@@ -55,3 +55,22 @@ def parse_bat1_slot(data: bytes) -> int:
     if len(data) < 8:
         raise ValueError("BAT1 too short")
     return int.from_bytes(data[BAT1_SLOT_OFF : BAT1_SLOT_OFF + 8], "little")
+
+
+def patch_tick_slot(data: bytes, slot: int) -> bytes:
+    """Rewrite only the slot u64 at offset 40. Leaves signer/timestamps intact."""
+    if len(data) < TICK_SIZE:
+        raise ValueError(f"tick account shorter than {TICK_SIZE}: {len(data)}")
+    if data[:8] != TICK_MAGIC:
+        raise ValueError("not MRKTKV01")
+    out = bytearray(data)
+    out[TICK_SLOT_OFF : TICK_SLOT_OFF + 8] = int(slot).to_bytes(8, "little")
+    return bytes(out)
+
+
+def patch_bat1_slot(data: bytes, slot: int) -> bytes:
+    if len(data) < 8:
+        raise ValueError("BAT1 too short")
+    out = bytearray(data)
+    out[BAT1_SLOT_OFF : BAT1_SLOT_OFF + 8] = int(slot).to_bytes(8, "little")
+    return bytes(out)

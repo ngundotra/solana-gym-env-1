@@ -1,0 +1,55 @@
+{
+  "mode": "time_travel",
+  "ts": 1789833160.0212555,
+  "cheats": [
+    "enable_failed:{'code': -32600, 'message': 'Invalid request', 'data': \"Unable to enable cheatcode: Cheatcode isn't disabled\"}"
+  ],
+  "mainnet_tick_slot": 448453579,
+  "mainnet_bat1_slot": 448453564,
+  "mainnet_tick_magic": "MRKTKV01",
+  "surfpool_clock_before": {
+    "slot": 37410,
+    "epoch_start_timestamp": 1789833123,
+    "epoch": 1038,
+    "leader_schedule_epoch": 0,
+    "unix_timestamp": 1789833123
+  },
+  "wrote": {
+    "4cG31VNF9TzFinNc7BmnjhFvGjxkY3sCETVMtMgbrhPs": 1503360,
+    "BAT1Ndpu5gbLTp2AZkSXP79LJBZfCH4B3zGhi6LtvdhK": 15144960,
+    "8ekCy2jHHUbW2yeNGFWYJT9Hm9FW7SvZcZK66dSZCDiF": 76149801,
+    "FLckHLGMJy5gEoXWwcE68Nprde1D4araK4TGLw4pQq2n": 9688332
+  },
+  "pause": {
+    "epoch": 1038,
+    "slotIndex": 37410,
+    "slotsInEpoch": 432000,
+    "absoluteSlot": 448453410,
+    "blockHeight": 37,
+    "transactionCount": 0
+  },
+  "time_travel": {
+    "epoch": 1038,
+    "slotIndex": 37579,
+    "slotsInEpoch": 432000,
+    "absoluteSlot": 448453579,
+    "blockHeight": 38,
+    "transactionCount": 1
+  },
+  "wrote_clock": {
+    "slot": 448453579,
+    "epoch_start_timestamp": 1789823115,
+    "epoch": 1038,
+    "leader_schedule_epoch": 1039,
+    "unix_timestamp": 1789833150
+  },
+  "verify": {
+    "clock_slot": 448453579,
+    "tick_slot": 448453579,
+    "bat1_slot": 448453564,
+    "slot_delta": 0,
+    "magic_ok": true,
+    "owner": "tickUcsEQegChaAuo9VYQQztB4ZGApY6ZT4FkULWY6N",
+    "owner_ok": true
+  }
+}
