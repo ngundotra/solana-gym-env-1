@@ -1,0 +1,275 @@
+{
+  "tessera": [],
+  "humidifi": [
+    {
+      "sig": "mPFjy2HuEB74oa9PD9Y2odVvubjeVdFHgqNmjedaLhJE23K4z7G4SvntSGH4riLrJD96uY3CWsB2JkBFZA5XYYQ",
+      "slot": 447171002,
+      "err": null,
+      "fee_payer": "AgmLJBMDCqWynYnQiPCuj9ewsNNsBJXyzoUhD9LJzN51",
+      "inner": true,
+      "parent": "DF1ow4tspfHX9JwWJsAb9epbkA8hmpSEAtxXy1V27QBH",
+      "nacc": 18,
+      "accounts": [
+        "BpyCr7v4Ee5KDKsEcTnXjjAkRbX9j6rWnt7Mu3EFmw93",
+        "FksffEqnBRixYGR791Qw2MgdU7zNCpHVFYBL4Fa4qVuH",
+        "C3FzbX9n1YD2dow2dCmEv5uNyyf22Gb3TLAEqGBhw5fY",
+        "3RWFAQBRkNGq7CMGcTLK3kXDgFTe9jgMeFYqk8nHwcWh",
+        "3VBQGHg298qL54h4uBDS5W8794a3CG81QxadCMA73JxH",
+        "DTi1sAjRrHHoaTp1jY46rT8VF4rZdmARN8sEbYkAqGqd",
+        "SysvarC1ock11111111111111111111111111111111",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "8xeaWCsJYxRoudEZGJWURdfrtFhLYZz9b4iHJnW5tb3d",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "HnfagQxhhFpTn5JrHPaekMKNVoqbHtS6CK6ptmfpDb4B",
+        "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+        "EXNBiVYTJErnLRaz9hae8P4nePswG21qZJZX9wJLUDnY",
+        "7Qca6CS6sExGXKh3UmJ5fpapc3YFwScVpjfhmi4ScWUM",
+        "6iL7bcqz6tmLo821xcvgDDSvrPh7knjoMQpyZEuSxML3",
+        "BnVnPRaBiXVkbQtk5DD7BdzkLSmxZc9WwgUtThbbwPSF"
+      ],
+      "data_hex": "c82766a7f56013ec86ab1cffe3baeac339ff2dffe0bae9c309",
+      "decoded": {
+        "swap_id": 3456752507807193330,
+        "amount_in": 3298493,
+        "is_base_to_quote": true,
+        "selector": 48,
+        "padding_hex": "00000000000000"
+      }
+    },
+    {
+      "sig": "2CfbTUN4MZ6oqDDtiT4an7UfAeJkg5XLqoNEJiyVBoQppz7SBAsD4AzkKxm9hoKnXchuY5vxnftCFVJgiceL75Ja",
+      "slot": 447171002,
+      "err": null,
+      "fee_payer": "AgmLJBMDCqWynYnQiPCuj9ewsNNsBJXyzoUhD9LJzN51",
+      "inner": true,
+      "parent": "DF1ow4tspfHX9JwWJsAb9epbkA8hmpSEAtxXy1V27QBH",
+      "nacc": 18,
+      "accounts": [
+        "DDcHfPQugoiHDNpjUqJxiYpdJRxSMrNbYX1eFfRzf3xg",
+        "DB3sUCP2H4icbeKmK6yb6nUxU5ogbcRHtGuq7W2RoRwW",
+        "8BrVfsvzb1DZqCactbYWoKSv24AfsLBuXJqzpzYCwznF",
+        "HsQcHFFNUVTp3MWrXYbuZchBNd4Pwk8636bKzLvpfYNR",
+        "gEyWfmKAH9Xo2TYTbt7w1XQSqdtgn4HhVZp7kxMQy5G",
+        "4ekZEgisu4g99xogUzKVgUDBhC3zUArveRC4ayHGU5wT",
+        "SysvarC1ock11111111111111111111111111111111",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "8xeaWCsJYxRoudEZGJWURdfrtFhLYZz9b4iHJnW5tb3d",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "B82FPux8T7UCfDjRMhNY7d427VXp7ZdyJyfDPVYEBsFo",
+        "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+        "EXNBiVYTJErnLRaz9hae8P4nePswG21qZJZX9wJLUDnY",
+        "7Qca6CS6sExGXKh3UmJ5fpapc3YFwScVpjfhmi4ScWUM",
+        "6iL7bcqz6tmLo821xcvgDDSvrPh7knjoMQpyZEuSxML3",
+        "4rLtJAhQKSWJqeCX8Eryn3SDaFhireiuebQRvERAcYE3"
+      ],
+      "data_hex": "b4f11cae71bb587c0f58e8ffe3baeac339ff2dffe0bae9c309",
+      "decoded": {
+        "swap_id": 13813386214309564046,
+        "amount_in": 13018932,
+        "is_base_to_quote": true,
+        "selector": 48,
+        "padding_hex": "00000000000000"
+      }
+    },
+    {
+      "sig": "fbDaJKqJ7bao1gAatxdvWeDnwU3QzBFe2SRpTjmZadjrwBjJLh4Ah74yk5L2gxut86Wxhob48np9q42BF79EMZo",
+      "slot": 447171002,
+      "err": null,
+      "fee_payer": "AgmLJBMDCqWynYnQiPCuj9ewsNNsBJXyzoUhD9LJzN51",
+      "inner": true,
+      "parent": "DF1ow4tspfHX9JwWJsAb9epbkA8hmpSEAtxXy1V27QBH",
+      "nacc": 18,
+      "accounts": [
+        "EB2ByADnZYfA1eBGTgvQqn8NpxYfkroVmakXnFRFtXqM",
+        "6n9VhCwQ7EwK6NqFDjnHPzEk6wZdRBTfh43RFgHQWHuQ",
+        "Cv9St5tDTGwpbG5UVvM6QvFmf3FYSXc14W9BYvQN5wAZ",
+        "7Rf8Gu8YemSoGjZT3z1cL5BT9HLbGywcyaz8Mrbhd1MH",
+        "D1qZzhLqBAoXJ6Wh6BcoVnHwM2jGYjeu2XZJrob1sHGc",
+        "CweTtTKVSqPQFeUF7f8ZnqWRKZnwqRzUtsavMv8p16n7",
+        "SysvarC1ock11111111111111111111111111111111",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "8xeaWCsJYxRoudEZGJWURdfrtFhLYZz9b4iHJnW5tb3d",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "2AjVUmkkJdxePRNjMpFG1x11vzFRgN69HBxZkyUy1qSh",
+        "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+        "EXNBiVYTJErnLRaz9hae8P4nePswG21qZJZX9wJLUDnY",
+        "7Qca6CS6sExGXKh3UmJ5fpapc3YFwScVpjfhmi4ScWUM",
+        "6iL7bcqz6tmLo821xcvgDDSvrPh7knjoMQpyZEuSxML3",
+        "CnFWhzckb2C4UWQvxFcbdeWbKgfbcrpc9rarn8eBnS4q"
+      ],
+      "data_hex": "e7036dcc093e3e59a4ed05fee3baeac339ff2dffe0bae9c309",
+      "decoded": {
+        "swap_id": 11156969797592480989,
+        "amount_in": 19600031,
+        "is_base_to_quote": true,
+        "selector": 48,
+        "padding_hex": "00000000000000"
+      }
+    },
+    {
+      "sig": "2xvZmGfs28yfdYmf2C1RHMVM1h1pFVm5rMn76HAb2RGQFgSWqimZvqwzaXhHxLTt9ufbxssASnjbFPzTGm5XsucY",
+      "slot": 447170998,
+      "err": null,
+      "fee_payer": "AgmLJBMDCqWynYnQiPCuj9ewsNNsBJXyzoUhD9LJzN51",
+      "inner": true,
+      "parent": "DF1ow4tspfHX9JwWJsAb9epbkA8hmpSEAtxXy1V27QBH",
+      "nacc": 18,
+      "accounts": [
+        "9fZQeiRuQopFEnA2x7kp9XBKqW6HFHBYtJhWpm8zo2D1",
+        "6n9VhCwQ7EwK6NqFDjnHPzEk6wZdRBTfh43RFgHQWHuQ",
+        "Cv9St5tDTGwpbG5UVvM6QvFmf3FYSXc14W9BYvQN5wAZ",
+        "7Rf8Gu8YemSoGjZT3z1cL5BT9HLbGywcyaz8Mrbhd1MH",
+        "71Gk9ZV8D9wzMtYhpyM1VtMRbw7pUCzyRoaLEPXZRDPj",
+        "3yhMAmAUCZNeahUm66FGaV5sWSPzz5YxN6F8mgF5GHs4",
+        "SysvarC1ock11111111111111111111111111111111",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "8xeaWCsJYxRoudEZGJWURdfrtFhLYZz9b4iHJnW5tb3d",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "AnAzH17WWHj8s8hoE3aXsA4h714Eww5TzzJ8zdm1ye8V",
+        "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+        "EXNBiVYTJErnLRaz9hae8P4nePswG21qZJZX9wJLUDnY",
+        "7Qca6CS6sExGXKh3UmJ5fpapc3YFwScVpjfhmi4ScWUM",
+        "6iL7bcqz6tmLo821xcvgDDSvrPh7knjoMQpyZEuSxML3",
+        "CiB6SSDvr27zcDfFVCy23TyJPJQkiU9UDs6eW3joDWn7"
+      ],
+      "data_hex": "c1d2138013bf7888cc6597fee3baeac338ff2dffe0bae9c309",
+      "decoded": {
+        "swap_id": 5445702909200969211,
+        "amount_in": 28941047,
+        "is_base_to_quote": false,
+        "selector": 48,
+        "padding_hex": "00000000000000"
+      }
+    },
+    {
+      "sig": "66hLBxR9oJAY62nmg11cjNLTjdgrVAG68UMjFAVqs1PaKgzTvrPjhoXgF2onkj56tgwW4Kc3ioCD4efNtrx1yZjb",
+      "slot": 447170996,
+      "err": null,
+      "fee_payer": "AgmLJBMDCqWynYnQiPCuj9ewsNNsBJXyzoUhD9LJzN51",
+      "inner": true,
+      "parent": "DF1ow4tspfHX9JwWJsAb9epbkA8hmpSEAtxXy1V27QBH",
+      "nacc": 18,
+      "accounts": [
+        "Fa4iE5uPs6k8ER5mKRzBxG7L12x8bJFtwJy2Hf4FXbRW",
+        "DB3sUCP2H4icbeKmK6yb6nUxU5ogbcRHtGuq7W2RoRwW",
+        "8BrVfsvzb1DZqCactbYWoKSv24AfsLBuXJqzpzYCwznF",
+        "HsQcHFFNUVTp3MWrXYbuZchBNd4Pwk8636bKzLvpfYNR",
+        "HzYitwxgkLwVhpufZcGJghcCcmAmMsWfmjPN6XoaH21F",
+        "GBAXRSWXkUCbLh2t3NQa7eruAc4NMvAmRLTZftDXnKL5",
+        "SysvarC1ock11111111111111111111111111111111",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "8xeaWCsJYxRoudEZGJWURdfrtFhLYZz9b4iHJnW5tb3d",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "GWykvxkGGiEma87CkycCouqRdhATXRXW7c62hwcqMAqd",
+        "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+        "EXNBiVYTJErnLRaz9hae8P4nePswG21qZJZX9wJLUDnY",
+        "7Qca6CS6sExGXKh3UmJ5fpapc3YFwScVpjfhmi4ScWUM",
+        "6iL7bcqz6tmLo821xcvgDDSvrPh7knjoMQpyZEuSxML3",
+        "E6fmx42iWFfoAFyUNwTQR2zrcfsfLNUEZWpwKRVBHkgZ"
+      ],
+      "data_hex": "ebab016cd9e34496e6ed2cdee3baeac339ff2dffe0bae9c309",
+      "decoded": {
+        "swap_id": 6174251726555469009,
+        "amount_in": 553784029,
+        "is_base_to_quote": true,
+        "selector": 48,
+        "padding_hex": "00000000000000"
+      }
+    },
+    {
+      "sig": "mVPodt3xEu4ZczT1nSBXLUSTU5z3y6bzMt7GcNek3DY28PGT6xqX7Uthjqd3kjtiq5fA8yxQR3gdBBe5QuenLbQ",
+      "slot": 447171021,
+      "err": null,
+      "fee_payer": "5TyaPTQYUVhpzDRRCr4sXKP71EdyK81Mm81vqHR6hhTF",
+      "inner": true,
+      "parent": "B3111yJCeHBcA1bizdJjUFPALfhAfSRnAbJzGUtnt56A",
+      "nacc": 18,
+      "accounts": [
+        "5TyaPTQYUVhpzDRRCr4sXKP71EdyK81Mm81vqHR6hhTF",
+        "AvGeFw71N5sNfV97mZ1uNrHg4yfufRicCJUrS9j2ehTX",
+        "ECEPWwZJ1U1Vjsj1X5sUbZYETKMSCjYHuoTMVitCn64t",
+        "FBWtVVvzsRuAAzVX8ua1hden9KmgPrC2rFijuwEn1ngJ",
+        "G8xysJLYFUMt1wEsZHyEacszXoYZQ3YJJYSasJYjexMu",
+        "GB7EaLoc9NZCxqAjemz78t8nKJN7tLyuDuzVDUir3u92",
+        "SysvarC1ock11111111111111111111111111111111",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "8xeaWCsJYxRoudEZGJWURdfrtFhLYZz9b4iHJnW5tb3d",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "Bhr6bEFZWPw4osFhch7FHRZDYhMjz3zHx5QyBcxc9Emw",
+        "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+        "EXNBiVYTJErnLRaz9hae8P4nePswG21qZJZX9wJLUDnY",
+        "7Qca6CS6sExGXKh3UmJ5fpapc3YFwScVpjfhmi4ScWUM",
+        "6iL7bcqz6tmLo821xcvgDDSvrPh7knjoMQpyZEuSxML3",
+        "4BGn6sMtm6M5cGAJUrwiZGtqam7LfNS3W9Tr2onqn1or"
+      ],
+      "data_hex": "2a5faedc06ddf124c80b35fce3baeac339ff2dffe0bae9c309",
+      "decoded": {
+        "swap_id": 16652736801701732368,
+        "amount_in": 52163827,
+        "is_base_to_quote": true,
+        "selector": 48,
+        "padding_hex": "00000000000000"
+      }
+    },
+    {
+      "sig": "5hL79XCnVYqL3HCJdwSryeLPCsBUq8bEwgF3e4uuJnfyUEhDEWvBMePNQPLK87436QiqmePG8NMH1BwNVi7fNC4Z",
+      "slot": 447171020,
+      "err": {
+        "InstructionError": [
+          3,
+          {
+            "Custom": 6001
+          }
+        ]
+      },
+      "fee_payer": "77777nPhGvFUVAj6uq8MGyLneBt4SMwCScYZDzzztdsa",
+      "inner": true,
+      "parent": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+      "nacc": 15,
+      "accounts": [
+        "77777nPhGvFUVAj6uq8MGyLneBt4SMwCScYZDzzztdsa",
+        "8sKQHfjNhvmAw94PhfvfMcytmqW6jmxvwieYyzXCCPu",
+        "H292B1VbSvD6GuUmSvUvfQstg1Acfzog796uQ7d1ccCw",
+        "A3C9xwv4Hfx92M5HQpxUiibSqCa5pYhD2kTwnU5fEPq",
+        "58PkTnbBYu3RVjaC7XrkWJFEECzoTGg9qRTeothgj1Fc",
+        "WnMhmqDqhsVDBVy4uFMMfS2K46LHoUwCgo5qAfP5u1K",
+        "SysvarC1ock11111111111111111111111111111111",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "Sysvar1nstructions1111111111111111111111111",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "AWfebMjKWzifW22SJcsKbR4Z7YaEe4YM5MHz93JciNqx",
+        "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+        "jitodontfront1111111111111111JustUseJupiter"
+      ],
+      "data_hex": "0aa8c508c689a18a5b000fb3e3baeac339ff2dffe0bae9c32d",
+      "decoded": {
+        "swap_id": 5281089746916497200,
+        "amount_in": 1277296480,
+        "is_base_to_quote": true,
+        "selector": 20,
+        "padding_hex": "00000000000000"
+      }
+    }
+  ],
+  "tessera_counts": {},
+  "humidifi_counts": {
+    "taker_25b_18acc": 6,
+    "other_113b_18acc": 1,
+    "skip_mm_65b_3acc": 28,
+    "taker_25b_15acc": 1
+  }
+}

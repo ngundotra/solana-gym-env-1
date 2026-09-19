@@ -1,0 +1,43 @@
+{
+  "sig": "4jZZgmg6P3dNaiGwuNjm2kYTK7VzysufPxqKkZtjvbqSPRNjdDB2Nr7iCC18vk8JhLJNtBxnpC4aCZKkLupMLr5i",
+  "slot": 448453584,
+  "err": null,
+  "fee": 105000,
+  "user": "7Ren3jtGQ1rnniJNvYJWjikbcTbZ9KEffB43K8E5yCoT",
+  "user_usdc_pre": 0,
+  "user_usdc_post": 1116749,
+  "user_usdc_delta": 1116749,
+  "user_lamports_delta": -12144280,
+  "pool_wsol_delta": 10000000,
+  "pool_usdc_delta": -1116749,
+  "tessera_cu": 71367,
+  "tessera_inner": [
+    {
+      "nacc": 14,
+      "data_hex": "100180969800000000000000000000000000",
+      "data_len": 18,
+      "accounts": [
+        "8ekCy2jHHUbW2yeNGFWYJT9Hm9FW7SvZcZK66dSZCDiF",
+        "FLckHLGMJy5gEoXWwcE68Nprde1D4araK4TGLw4pQq2n",
+        "7Ren3jtGQ1rnniJNvYJWjikbcTbZ9KEffB43K8E5yCoT",
+        "5pVN5XZB8cYBjNLFrsBCPWkCQBan5K5Mq2dWGzwPgGJV",
+        "9t4P5wMwfFkyn92Z7hf463qYKEZf8ERVZsGBEPNp8uJx",
+        "3Hh6vK8LtmXA4zzpcZTe7xJCftn2i9NGaQfA6vKnuDjs",
+        "G4SFbmWim9iWMfr5CvwABDwJ2GNzBsGT2LJnujjHHDtb",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "Sysvar1nstructions1111111111111111111111111",
+        "BAT1Ndpu5gbLTp2AZkSXP79LJBZfCH4B3zGhi6LtvdhK",
+        "4cG31VNF9TzFinNc7BmnjhFvGjxkY3sCETVMtMgbrhPs"
+      ]
+    }
+  ],
+  "logs_tail": [
+    "Program log: Instruction: Route",
+    "Program TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH invoke [2]",
+    "Program TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH consumed 71367 of 1368365 compute units",
+    "Program TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH success"
+  ]
+}

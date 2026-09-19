@@ -1,0 +1,40 @@
+{
+  "sig": "41wS9DHaEQLbXQB5wuHpxN8yJqp8gmaDMhJ1wLXXHaDm6thN4Vq9RjjcASMTijp8sAbPneu7VD9hbgqWJ7yqzD7T",
+  "slot": 447169617,
+  "err": null,
+  "proof": {
+    "user_usdc_out": 1006677,
+    "pool_wsol_delta": 10000000,
+    "humidifi_cu": 81635,
+    "log": "Program 9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp success"
+  },
+  "humidifi_or_tessera": [
+    {
+      "program": "9H6tua7jkLhdm3w8BvgpTn5LZNU7g4ZynDmCiNN3q6Rp",
+      "inner": true,
+      "parent": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+      "nacc": 18,
+      "data_hex": "ba69b7ffe2baebc33aff2effe3baeac3a83faa5c40bbe9c3ffcf7e55c0992590a45a3ec1d5aba4deaf3700a0ffedfa43c3c05dcd72721e3735e748e8a870e5d973fe5a15876746d89e1f38da7fb568abff2116bb25d9a6f5449402b386722368cd6bec15728e3d7e37ff22ffefbae6c328",
+      "accounts": [
+        "Chjk56WAPt3AYY8MNKn3b3n2i4tJ5M4y3iVJmhjaxFJ4",
+        "DB3sUCP2H4icbeKmK6yb6nUxU5ogbcRHtGuq7W2RoRwW",
+        "8BrVfsvzb1DZqCactbYWoKSv24AfsLBuXJqzpzYCwznF",
+        "HsQcHFFNUVTp3MWrXYbuZchBNd4Pwk8636bKzLvpfYNR",
+        "2mTtJ3NkJL4pPVanMgf3LSKPPgoDdtWtMphonecNbduL",
+        "5qg4u8yiVVqNDNZUtkchH39iQgG1RyQTNQJb4aUwq2AZ",
+        "SysvarC1ock11111111111111111111111111111111",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "Sysvar1nstructions1111111111111111111111111",
+        "So11111111111111111111111111111111111111112",
+        "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "Fnf3RYYN4uHEzUnCNAbeN4LrezyAbSJZ6Digr2ActVXC",
+        "48kcGEZUEDuKX4cxqHiCcasRPz3wZSp2MLhpbpGYAeYu",
+        "11111111111111111111111111111111",
+        "J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv",
+        "7Qca6CS6sExGXKh3UmJ5fpapc3YFwScVpjfhmi4ScWUM",
+        "6iL7bcqz6tmLo821xcvgDDSvrPh7knjoMQpyZEuSxML3"
+      ]
+    }
+  ]
+}

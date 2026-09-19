@@ -1,0 +1,216 @@
+{
+  "dex": "TesseraV",
+  "user": "7Ren3jtGQ1rnniJNvYJWjikbcTbZ9KEffB43K8E5yCoT",
+  "airdrop": "3vF4wKksCxWwns6fLN861srjHEZ8sW8V2v5LePTAxRgTJusHAR9a459G4ucMsU62i1y27Vgv8p2F2D8dYW8kAZro",
+  "tessera_freshness": {
+    "mode": "time_travel",
+    "ts": 1789833161.1372068,
+    "cheats": [
+      "enable_failed:{'code': -32600, 'message': 'Invalid request', 'data': \"Unable to enable cheatcode: Cheatcode isn't disabled\"}"
+    ],
+    "mainnet_tick_slot": 448453584,
+    "mainnet_bat1_slot": 448453564,
+    "mainnet_tick_magic": "MRKTKV01",
+    "surfpool_clock_before": {
+      "slot": 448453579,
+      "epoch_start_timestamp": 1789823115,
+      "epoch": 1038,
+      "leader_schedule_epoch": 1039,
+      "unix_timestamp": 1789833150
+    },
+    "wrote": {
+      "4cG31VNF9TzFinNc7BmnjhFvGjxkY3sCETVMtMgbrhPs": 1503360,
+      "BAT1Ndpu5gbLTp2AZkSXP79LJBZfCH4B3zGhi6LtvdhK": 15144960,
+      "8ekCy2jHHUbW2yeNGFWYJT9Hm9FW7SvZcZK66dSZCDiF": 76149801,
+      "FLckHLGMJy5gEoXWwcE68Nprde1D4araK4TGLw4pQq2n": 9688332
+    },
+    "pause": {
+      "epoch": 1038,
+      "slotIndex": 37579,
+      "slotsInEpoch": 432000,
+      "absoluteSlot": 448453579,
+      "blockHeight": 38,
+      "transactionCount": 1
+    },
+    "time_travel": {
+      "epoch": 1038,
+      "slotIndex": 37584,
+      "slotsInEpoch": 432000,
+      "absoluteSlot": 448453584,
+      "blockHeight": 39,
+      "transactionCount": 1
+    },
+    "wrote_clock": {
+      "slot": 448453584,
+      "epoch_start_timestamp": 1789823115,
+      "epoch": 1038,
+      "leader_schedule_epoch": 1039,
+      "unix_timestamp": 1789833151
+    },
+    "verify": {
+      "clock_slot": 448453584,
+      "tick_slot": 448453584,
+      "bat1_slot": 448453564,
+      "slot_delta": 0,
+      "magic_ok": true,
+      "owner": "tickUcsEQegChaAuo9VYQQztB4ZGApY6ZT4FkULWY6N",
+      "owner_ok": true
+    }
+  },
+  "quote_keys": [
+    "inputMint",
+    "inAmount",
+    "outputMint",
+    "outAmount",
+    "otherAmountThreshold",
+    "swapMode",
+    "slippageBps",
+    "platformFee",
+    "priceImpactPct",
+    "routePlan",
+    "contextSlot",
+    "timeTaken",
+    "swapUsdValue",
+    "mostReliableAmmsQuoteReport",
+    "longtailMarketQuoteReport",
+    "useIncurredSlippageForQuoting",
+    "useRewards",
+    "otherRoutePlans",
+    "loadedLongtailToken",
+    "instructionVersion"
+  ],
+  "routePlan": [
+    {
+      "swapInfo": {
+        "ammKey": "FLckHLGMJy5gEoXWwcE68Nprde1D4araK4TGLw4pQq2n",
+        "label": "TesseraV",
+        "inputMint": "So11111111111111111111111111111111111111112",
+        "outputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "inAmount": "10000000",
+        "outAmount": "1117086",
+        "updateContextSlot": "448453620"
+      },
+      "percent": 100,
+      "bps": null
+    }
+  ],
+  "error": null,
+  "swap_instruction_keys": [
+    "tokenLedgerInstruction",
+    "computeBudgetInstructions",
+    "setupInstructions",
+    "swapInstruction",
+    "cleanupInstruction",
+    "otherInstructions",
+    "addressLookupTableAddresses",
+    "prioritizationFeeLamports",
+    "computeUnitLimit",
+    "prioritizationType",
+    "simulationSlot",
+    "dynamicSlippageReport",
+    "simulationError",
+    "addressesByLookupTableAddress",
+    "blockhashWithMetadata",
+    "timeTaken",
+    "createAtaTimeTaken"
+  ],
+  "built_ixs": [
+    {
+      "program": "ComputeBudget111111111111111111111111111111",
+      "data_hex": "02c05c1500",
+      "nacc": 0,
+      "selector": 2
+    },
+    {
+      "program": "ComputeBudget111111111111111111111111111111",
+      "data_hex": "030417010000000000",
+      "nacc": 0,
+      "selector": 3
+    },
+    {
+      "program": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+      "data_hex": "01",
+      "nacc": 6,
+      "selector": 1
+    },
+    {
+      "program": "11111111111111111111111111111111",
+      "data_hex": "020000008096980000000000",
+      "nacc": 2,
+      "selector": 2
+    },
+    {
+      "program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "data_hex": "11",
+      "nacc": 1,
+      "selector": 17
+    },
+    {
+      "program": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+      "data_hex": "01",
+      "nacc": 6,
+      "selector": 1
+    },
+    {
+      "program": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+      "data_hex": "e517cb977ae3ad2a01000000b20164000180969800000000009e0b110000000000f40100",
+      "nacc": 24,
+      "selector": 229
+    },
+    {
+      "program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "data_hex": "09",
+      "nacc": 3,
+      "selector": 9
+    }
+  ],
+  "sig": "4jZZgmg6P3dNaiGwuNjm2kYTK7VzysufPxqKkZtjvbqSPRNjdDB2Nr7iCC18vk8JhLJNtBxnpC4aCZKkLupMLr5i",
+  "receipt_err": null,
+  "logs": [
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 201 of 1386131 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+    "Program log: CreateIdempotent",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 183 of 1380579 compute units",
+    "Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA=",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program 11111111111111111111111111111111 invoke [2]",
+    "Program 11111111111111111111111111111111 success",
+    "Program log: Initialize the associated token account",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 38 of 1375486 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 235 of 1373024 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 13424 of 1385930 compute units",
+    "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 invoke [1]",
+    "Program log: Instruction: Route",
+    "Program TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH invoke [2]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 112 of 1301768 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [3]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 105 of 1299292 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success",
+    "Program log: S-00: TiK8H",
+    "Program TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH consumed 71367 of 1368365 compute units",
+    "Program TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH success",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 invoke [2]",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 consumed 106 of 1294996 compute units",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 success",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 consumed 78593 of 1372506 compute units",
+    "Program return: JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 TQoRAAAAAAA=",
+    "Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 success",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [1]",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 118 of 1293913 compute units",
+    "Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+  ],
+  "hit_tessera": true,
+  "hit_humidifi": false,
+  "hit_bison": false,
+  "hit_scorch": false,
+  "success": true
+}

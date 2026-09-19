@@ -1,0 +1,36 @@
+{
+  "program": "TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH",
+  "selector": "0x10",
+  "nacc": 14,
+  "jupiter_parent": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+  "fresh_jup_quote": {
+    "result": "Tessera CPI custom 0xffff after 62872 CU",
+    "setup": "ATA + wrap SOL succeeded"
+  },
+  "mainnet_success_replay": {
+    "sig": "2AUbcsTEjJhqYLPEgSZmZMwJL8y11nhSnQM1qoL2igEc8QQ9kKc6bnom8uqYztPxt3mRyHkF2bHC4eX1PPZmGLMy",
+    "mainnet_err": null,
+    "surfpool_sim_err": {"InstructionError": [1, {"Custom": 65535}]},
+    "mainnet_slot": 447168171
+  },
+  "tick_account": {
+    "pubkey": "4cG31VNF9TzFinNc7BmnjhFvGjxkY3sCETVMtMgbrhPs",
+    "owner": "tickUcsEQegChaAuo9VYQQztB4ZGApY6ZT4FkULWY6N",
+    "magic": "MRKTKV01",
+    "len": 88,
+    "contains_slot_u64": true,
+    "mainnet_vs_surfpool": "bytes diverge at same length"
+  },
+  "bat1_oracle": {
+    "pubkey": "BAT1Ndpu5gbLTp2AZkSXP79LJBZfCH4B3zGhi6LtvdhK",
+    "owner": "TessVdML9pBGgG9yGks7o4HewRaXVAMuoVj4x83GLQH",
+    "len": 2048,
+    "mainnet_vs_surfpool": "bytes diverge"
+  },
+  "gate": "Fresh tickUcs MRKTKV01 slot oracle + BAT1 book. Surfpool one-shot clones go stale; 0xffff even under Jupiter CPI.",
+  "superseded_by": {
+    "fix": "surfnet_setAccount on SysvarC1ock to absolute tick.slot (timeTravel leaves slotIndex)",
+    "sig": "4jZZgmg6P3dNaiGwuNjm2kYTK7VzysufPxqKkZtjvbqSPRNjdDB2Nr7iCC18vk8JhLJNtBxnpC4aCZKkLupMLr5i",
+    "user_usdc_delta": 1116749
+  }
+}
